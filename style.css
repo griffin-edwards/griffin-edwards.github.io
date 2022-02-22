@@ -2,6 +2,12 @@
   margin: 0;
   padding: 0;
   }
+  h1 {
+    font-weight:  bold;
+    font-family: 'Times New Roman';
+    color: black;
+    font-size: 40px;
+  }
   form {
     /*position: absolute;*/
     z-index: 1;
@@ -9,9 +15,18 @@
     left: 0;
     top: 0;
   }
-  h1 {
-    font-weight:  bold;
-    font-family: 'Times New Roman';
-    color: red;
-    font-size: 40px;
+  IMGTR {
+    height: 200px;
+    position: absolute;
+    top: .5em;
+    right: .5em;
+  }
+  body {
+    background-color: white;
+    font-family: sans-serif;
 }
+
+p {
+    color: black;
+}
+  

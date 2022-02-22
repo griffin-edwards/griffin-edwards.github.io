@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   }
-  
+
 h1 {
     font-weight:  bold;
     font-family: 'Times New Roman';
@@ -18,7 +18,7 @@ form {
     top: 0;
 }
 
-.topright {
+img.topright {
     height: 200px;
     position: absolute;
     top: .5em;

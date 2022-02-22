@@ -9,3 +9,9 @@
     left: 0;
     top: 0;
   }
+  h1 {
+    font-weight:  bold;
+    font-family: 'Times New Roman';
+    color: red;
+    font-size: 40px;
+}

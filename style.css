@@ -15,7 +15,7 @@
     left: 0;
     top: 0;
   }
-  IMGTR {
+  .topright {
     height: 200px;
     position: absolute;
     top: .5em;
@@ -28,5 +28,6 @@
 
 p {
     color: black;
+    font-family: 'Times New Roman'
 }
   

@@ -66,7 +66,7 @@ curve.getPoint = t => {
   };
   */
 
-const radius = 1;
+const radius = 0.5;
 const xScale = 0.5;
 const xShift = 0.25;
 const yScale = 0.5;

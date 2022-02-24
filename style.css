@@ -28,14 +28,6 @@ h1 {
     font-size: 40px;
 }
 
-form {
-    /*position: absolute;*/
-    z-index: 1;
-    background: #000;
-    left: 0;
-    top: 0;
-}
-
 .topright {
     height: 200px;
     position: absolute;

@@ -1,15 +1,18 @@
 (function(){
 
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+const container = document.querySelector("#scene");
+const rect = container.getBoundingClientRect();
+renderer.setSize(rect.width, rect.height);
+container.appendChild( renderer.domElement );
+
 // set up the scene, camera, and renderer
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+const camera = new THREE.PerspectiveCamera( 75,rect.width / rect.height, 0.1, 1000 );
 // set the z axis to be up like we're used to (in graphics, y is up and z is into the screen)
 camera.up.set(0, 0, 1);
 camera.position.set(5.6, -8.2, 6.7);
-
-const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize( window.innerWidth, window.innerHeight );
-document.querySelector("main").appendChild( renderer.domElement );
 
 const controls = new THREE.OrbitControls(camera, renderer.domElement);
 
@@ -204,6 +207,13 @@ function torus(R, r, theta, phi) {
   ];
 }
 
+ // make sure scene resizes correctly
+ window.addEventListener("resize", () => {
+  const {width, height} = renderer.domElement.getBoundingClientRect();
+  renderer.setSize(width, height);
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+});
 
 /* Old Code That Might be useful later:
 

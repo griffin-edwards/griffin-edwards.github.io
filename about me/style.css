@@ -1,0 +1,67 @@
+/* Add a dark blue background color to the top navigation */
+.topnav {
+    background-color: #101030;
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%;
+}
+  
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+  
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #dedede;
+    color: #101030;
+}
+  
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #bac0d4;
+    color: #101030;
+}
+
+.icon {
+    max-height: 44px;
+    max-width: auto;
+}
+
+.main {
+    margin-top: 50px;
+}
+
+h1 {
+    font-weight:  bold;
+    font-family: 'Times New Roman';
+    color: black;
+    font-size: 40px;
+}
+  
+.topright {
+    height: 200px;
+    position: absolute;
+    top: 55px;
+    right: 5px;
+}
+  
+body {
+    background-color: white;
+    font-family: 'Times New Roman';
+}
+
+
+p {
+    color: black;
+    font-family: 'Times New Roman';
+    margin: 1em 0;
+}
+    
+  

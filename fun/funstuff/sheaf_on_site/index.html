@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8"/>
+
+        <link href="../../../style.css" rel="stylesheet"/>
+        <title>Griffin Edwards</title>
+
+        <meta name="Griffin Edwards" content="Griffin Edwards">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css" integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.js" integrity="sha384-Qsn9KnoKISj6dI8g7p1HBlNpVx0I8p1SvlwOldgi3IorMle61nQy4zEahWYtljaz" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                renderMathInElement(document.body, {
+                // customised options
+                // • auto-render specific keys, e.g.:
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                // • rendering keys, e.g.:
+                throwOnError : false
+                });
+            });
+        </script>
+        
+        
+        <!-- MathJax
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+    </head> 
+
+    <body>
+        
+        <div class="topnav">
+            <table style="width: 100%;">
+                <tr>
+                    <td>
+                        <name>
+                            Griffin Edwards
+                        </name>
+                        <img src="../../../images/Griffin_Icon_White.png" alt="Logo" class="logo"> 
+                    </td>
+                    <td>
+                        <name>
+                            Sheaf on a Site
+                        </name>
+                    </td>
+                    <td class="alignRight">
+                        <a href="../../index.html">Return</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="space"></div>
+
+        <div class="main">
+            <h1>Hands on Example of Sheaf on a Site</h1>
+            <p>
+                This page is still a work in progrss!   We first will review some definitions. If you are familiar, feel free to skip them! 
+            </p>
+            <div type="button" class="collapsible" onload="style.display='None'"><strong>Definition:</strong> Grothendieck Topology</div>
+            <div class="content">
+                <p>
+                    A Grothendieck Topology on a category $\mathcal C$ is a collection of sets $\text{Cov}(X)$ called the covers of $x$ for every object $X$ in $\mathcal C$.
+                    The elements of $\text{Cov}(X)$ are called (unsurprisingly) covers of $X$. 
+                    A cover of $X$ is a set of pairs $(Y,f)$ for some object $Y$ in $\mathcal C$ and some morphism $f:Y\rightarrow X$.
+                    I will often denote a cover as $\{f_i:Y_i\rightarrow X\}_{i\in I}$ for some index set $I$. 
+                    We have the following requirements for this to be a Grothendieck Topology:
+                </p>
+                <ol>
+                    <li>
+                        If $f:Y \rightarrow X$ is an isomorphism then $\{f:Y \rightarrow X\} \in \text{Cov}(X)$.
+                    </li>
+                    <li>
+                        If $\{f_i:Y_i \> X\}_{i\in I} \in \text{Cov}(\mathcal C)$ and for each $i \in I$ we have an index set $J_i$ 
+                            such that $\{g_j:Z_{i,j} \rightarrow Y_i\}_{j\in J_i} \in \text{Cov}(Y_i)$, 
+                            then $\{(g_j \circ f_i):Z_{i,j}\rightarrow X\}_{i\in I,j \in J_i} \in \text{Cov}(X)$.
+                    </li>
+                    <li>
+                        If $\{f_i:Y_i \rightarrow X\}_{i\in I} \in \text{Cov}(X)$ and $g:Y \rightarrow X$ is a morphism of $\mathcal C$ 
+                            then $Y_i\times_X Y$ exists for all $i\in I$ and $\{g_i: Y_i \times_X Y \rightarrow Y \}_{i\in I} \in \text{Cov}(Y)$ for the induced maps $g_i$. 
+                    </li>
+                </ol>
+                <p>
+                    Intuition: We require that an isomorphism is a cover, a cover of a cover is a cover, and the pullback of a cover is a cover. 
+                    <br>
+                    We say a choice of category $\mathcal C$ and a topology $\tau$ on $\mathcal C$ is a <em>site</em>. 
+                </p>
+            </div> 
+            <div type="button" class="collapsible" onload="style.display='None'"><strong>Definition:</strong> Sheaf</div>
+            <div class="content">
+                <p>A sheaf of sets on a site $(\mathcal C,\tau)$ is a contravariant functor 
+                        $\mathscr F: \mathcal C \rightarrow \text{Set}$ with the following property:
+                    <br>
+                    For any cover $\{f_i:Y_i\rightarrow X \}_{i\in I}\in \text{Cov}(X)$, the following  diagram is an equalizer:
+                    $$\mathscr F(X) \xrightarrow{\mathscr F(f_i)}\prod_{i\in I} \mathscr F(Y_i) \rightrightarrows 
+                        \prod_{j,k\in I}\mathscr F(Y_j \times_{X} Y_k) $$
+                    In the case where $\mathscr F$ takes $\mathcal C$ to an abelian concrete category, such as $R-\text{Mod}$,
+                        the following sequence being exact is equivalent requirement:
+                    $$0\rightarrow \mathscr F(X) \xrightarrow{\mathscr F(f_i)}\prod_{i\in I} \mathscr F(Y_i)
+                        \xrightarrow{\mathscr F(p_j)-\mathscr F(p_k)} \prod_{j,k\in I}\mathscr F(Y_j \times_{X} Y_k)\rightarrow 0 $$
+                </p>
+
+            </div> 
+            <p>
+                Now we construct a neat category, put two different topologies on the category, and construct a sheaf on both of them. 
+                It will turn out the gluing condition turns out to be exactly a well known theorem. 
+                <br>
+                We construct the category $\mathbb N_{\text{div}}$ in following way. 
+                Let the objects be elements of $\mathbb N$ (I include 0, but it is not required). 
+                For any $a,b\in \mathbb N$, we construct a unique morphism from $a$ to $b$ if $a|b$. 
+                (This is poset category if you want to get technical.) 
+                <br>
+                Next, we describe the first topology on $\mathbb N_{\text{div}}$. 
+                Notice that since there is at most one morphism between each object, a covering is dependent on the choice of objects.
+                We say the collection $\{b_i\}_{i\in I}$ for some index set $I$ is a cover for $b$ if the following conditions hold:
+            </p>
+            <ol>
+                <li>for all $i\in I$, $b_i|b$</li>
+                <li>for all $i,j\in I$, $b_i$ and $b_j$ are coprime</li>
+                <li>$b=\prod_{i\in I}b_i$ (here we are taking the product in $\mathbb N$, not the categorical product)</li>
+            </ol>
+            <p>
+                Note that the first condition implies the index set for any cover is finite, so the product in the third condition is well definied. 
+            </p>
+            <!-- Lemma 1 -->
+            <p class="Lemma">
+                <strong>Lemma 1</strong>: This definition of a cover of $b$ defines a topology on all of $\mathbb N_\text{div}$.
+            </p>    
+            <div type="button" class="collapsible" onload="style.display='None'">Proof of Lemma 1 (incomplete)</div>
+            <div class="content">
+                <p>
+                    We 
+                    <fin></fin>
+                </p>
+            </div>
+            <script src="../../../script.js"></script>
+        </div>
+    </body>
+
+</html>
+<!-- \section{Definitions}
+\definition[Presheaf]
+A \textbf{presheaf} on a small category $\C$ is functor 
+$$\C^\op \> \Set$$
+An $S$-valued presheaf is a functor
+$$\C^\op \> S$$
+
+\definition[Site] A \textbf{site} is given by a category $\C$ and a set $\Cov(\C)$ of families of morphisms with fixed target $\lrc{U_i \> U}_{i\in I}$ , called coverings of $\C$, satisfying the following axioms
+\begin{itemize}
+    \item If $V \> U$ is an isomorphism then $\lrc{V \> U} \in \Cov(\C)$.
+    \item If $\lrc{U_i \> U}_{i\in I} \in \Cov(\C)$ and for each $i$ we have $\lrc{V_{i,j} \> U_i}_{j\in J_i} \in \Cov(\C)$, then $\lrc{V_{i,j} \> U}_{i\in I,j \in J_i} \in \Cov(\C)$.
+    \item If $\lrc{U_i \> U}_{i\in I} \in \Cov(\C)$ and $V \> U$ is a morphism of $\C$ then $U_i \times_U V$ exists for all $i$ and 
+    
+    $\lrc{U_i \times_U V \> V }_{i\in I} \in \Cov(\C)$. 
+\end{itemize}
+\definition[Sheaf] Let $\C$ be a site, and let $\F$ be a presheaf of sets on $\C$. We say $\F$ is a sheaf if for every covering $\lrc{U_i \> U}_{i\in I} \in \Cov(C)$ the diagram
+$$\F(U) \> \prod_{i\in I} \F(U_i) \rightrightarrows \prod_{i,j\in I}\F(U_i\times_U U_j)$$
+represents the first arrow as the equalizer of the two projections.
+
+Loosely speaking this means that given sections $s_i \in \F(U_i)$ such that
+$$s_i|_{U_i\times_U U_j} = s_j|_{U_i\times_U U_j}$$
+in $\F(U_i \times_U U_j)$ for all pairs $(i, j) \in I \times I$ then there exists a unique $s \in \F(U)$ such that $s_i = s|_{U_i}$.
+
+\section{First Example}
+We define $\N_{\div}$ to be the category with objects the natural numbers and a morphisms $a\> b$ whenever $a|b$. In this poset category, every pullback exists. Notably, $a \times_c b \cong \gcd(a,b)$ for any $a,b,c\in \N$. 
+We say $\lrc{a_i\> b}_{i\in I} \in \Cov(\N_\div)$ if $\gcd(a_i,a_j) = 1$ for every $i,j\in I$ and $b= \prod_{i\in I}a_i$ (here product is of natural numbers, not the categorical product). 
+
+We define the functor 
+\begin{align*}
+    \F: \N_\div^{\op} &\> \Z\text{-Alg} \\
+    a &\> \Z/a\Z
+\end{align*}
+Such that $\F(a\>b)$ is $\Z/b\Z \> \Z/a\Z$, by reduction modulo $a$. This is clearly a presheaf, and the gluing axiom of the sheaf condition is exactly the Chinese Remainder Theorem. Therefore, this is a sheaf.
+
+\section{The More Interesting Example}
+Now, I trying to make the conditions on possible covers less restrictive. I think we can get more covers in the following way. I think this is the most covers one can get. Using the same functor $\F:\N_{\div}\> \Z\text{-Alg}$, we say that
+\begin{equation*}
+    \lrc{a_i\>b}_{i\in I}
+\end{equation*}
+is a cover if there exists a map $b\> \coprod_{i\in I}a_i$ (here the coproduct is the categorical definition). This is equivalent to the statement $b| \lcm\lrc{a_i}_{i\in I}$.
+
+First we show these coverings actually satisfy the axioms. Clearly, any isomorphism is a cover. 
+
+Now we check pullbacks. Suppose $\lrc{a_i\> b}_{i\in I}$ is a cover, and $c|b$. Then we need to see that $c$ divides $\lcm\lrc{\gcd(a_i,c)}_{i\in I}$. For any prime power $p^e$ which divides $c$, we need to show that $p^e|\lcm\lrc{\gcd(a_i,c)}_{i\in I}$, which is equivalent to the existence of some $i\in I$ such that $p^e|\gcd(a_i,c)$. Since $p^e|c$, we just need to find some $a_i$ such that $p^e|a_i$. However, since $p^e|c$ and $c|b$ and $b|\lcm\lrc{a_i}_{i\in I}$, then clearly $p^e|\lcm\lrc{a_i}_{i\in I}$ so there exists some $i$ such that $p^e|a_i$.
+
+Lastly, we need to see covers of covers are covers. Suppose that $\lrc{a_i}_{i\in I}$ is a cover for $b$, and for $i$ there exists $\lrc{c_{i,j}}_{j\in J_i}$, a cover of $a_i$. For any prime power $p^e|b$, we know there exists an $a_i$ such that $p^e|a_i$. Likewise, we know there exists some $c_{i,j}$ such that $p^e|c_{i,j}$. Therefore, $\lrc{c_{i,j}}_{i\in I, j\in J_i}$ is a cover of $b$.
+
+Now, we need to show the sheaf condition holds. 
+
+Suppose we have a cover $a_i$ over $b$. (Without loss of generality, we can assume $b= \lcm\lrc{a_i}_{i\in I}$). Further supposes for any collection $\lrc{x_i}_{i\in I}$ such that $x_i \in \Z/a_i\Z$ and for all $j,k\in I$ we have $x_j \equiv x_k \mod \gcd(a_j,a_k)$, then there exists a unique $x \in \Z/b\Z$ such that $x \equiv x_i \mod a_i$ for all $i$. 
+
+Let $\lrc{p^{e_{i'}}_{i'}}_{i'\in I'}$ be the set of the largest prime powers that divide $b$. Then, clearly, 
+$$\coprod_{i'\in I'} p^{e_{i'}}_{i'} = b$$
+Moreover, our condition we see we get unique $x_{i'} \in \Z/p^{e_{i'}}_{i'} \Z$ for all $i'\in I'$ such that $x_{i'} \equiv \mod p^{e_{i'}}_{i'}$. By applying Chinese Remainder Theorem, there exists a unique 
+
+
+Let $d = \gcd\lrc{a_i}_{i\in I}$. Then by assumption, we have that $x_j \equiv x_k \mod d$ for all $j,k\in I$. Let $x_j' \in \Z/(a_j/d)\Z$ such that $x_j \equiv x_j'\mod (a_j/d)$ for all $j\in I$. Since $b/d = \gcd\lrc{a_i/d}_{i\in I}$ and $\lrc{a_i/d}_{i\in I}$ are pairwise coprime, we have there exists a unique $x' \in \Z/(b/d)\Z$ such that $x'\equiv x_i' \mod a_i/d$ for all $i\in I$ by the Chinese Remainder Theorem.
+
+\section{Motivation and Reason of Interest}
+I'm hoping to extend the sheaf $\F: \O_{K,\div}\> \O_K\text{-Alg}$. Not sure what exactly is the point, but it seems like a natural example of a sheaf to me. Here we would look at the category of 
+ -->
+
+
+

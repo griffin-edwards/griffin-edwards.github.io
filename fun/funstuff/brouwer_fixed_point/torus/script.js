@@ -209,10 +209,21 @@ function torus(R, r, theta, phi) {
 
  // make sure scene resizes correctly
  window.addEventListener("resize", () => {
-  const {width, height} = renderer.domElement.getBoundingClientRect();
-  renderer.setSize(width, height);
+  console.log("Resize event");
+  
+  const container = document.querySelector("#scene");
+  const rect = container.getBoundingClientRect();
+  const width = rect.width;
+  const height = rect.height;
+  
+  //console.log(width,height)
   camera.aspect = width / height;
   camera.updateProjectionMatrix();
+  renderer.setSize(width, height);
+  
+  // added below 
+  // controls.update();
+  // renderer.render( scene, camera );
 });
 
 /* Old Code That Might be useful later:

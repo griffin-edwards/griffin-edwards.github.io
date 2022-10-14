@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8"/>
+
+        <link href="../../../style.css" rel="stylesheet"/>
+        <title>Griffin Edwards</title>
+
+        <meta name="Griffin Edwards" content="Griffin Edwards">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css" integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.js" integrity="sha384-Qsn9KnoKISj6dI8g7p1HBlNpVx0I8p1SvlwOldgi3IorMle61nQy4zEahWYtljaz" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                renderMathInElement(document.body, {
+                // customised options
+                // • auto-render specific keys, e.g.:
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                // • rendering keys, e.g.:
+                throwOnError : false
+                });
+            });
+        </script>
+        
+        
+        <!-- MathJax
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+    </head> 
+
+    <body>
+        
+        <div class="topnav">
+            <table style="width: 100%;">
+                <tr>
+                    <td>
+                        <name>
+                            Griffin Edwards
+                        </name>
+                        <img src="../../../images/Griffin_Icon_White.png" alt="Logo" class="logo"> 
+                    </td>
+                    <td>
+                        <name>
+                            Prime Ideals of $\overline{\mathbb Z}$ 
+                        </name>
+                    </td>
+                    <td class="alignRight">
+                        <a href="../../index.html">Return</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="space"></div>
+
+        <div class="main">
+            <h1>Prime Ideals of $\overline{\mathbb Z}$</h1>
+            <p>
+                We wish to examine the prime ideals of the integral completion of \(\mathbb Z\) in the algebraic closure of \(\mathbb Q\). 
+                We denote this ring as $\overline {\mathbb Z}$.
+                First, we let \(\mathscr L\) denote the collection of all finite extensions \(L\) over \(\mathbb Q\). 
+                For each \(L \in \mathscr L\), we choose an embedding \(f_L:L\hookrightarrow \overline {\mathbb Q}\).
+                For every \(K \in \mathscr L\), and a finite extension of \(K\) called \(L\in \mathcal L\), there is a unique embedding
+                \(f_K^L:K\hookrightarrow L\) such that \(f_K = f_L \circ f_K^L\). 
+                This is equivalent to the following diagram commuting:
+                
+                $$\begin{CD}
+                    \overline{\mathbb Q} @= \overline{\mathbb Q} \\
+                    @A f_L AA @A f_K AA \\
+                    L @< f_K^L<< K
+                \end{CD}$$
+                
+                Now we can begin studying the prime ideals of \(\overline{\mathbb Z}\). 
+                Suppose that \(\mathscr P = \{\mathfrak p_L\}_{L\in \mathscr L}\) is a collection of prime ideals 
+                    \(\mathfrak p_L \subset \mathcal O_L\) with the following property: <br>
+                For any \(L, K \in \mathscr L\) such that \(L\) is a finite extension of \(K\), 
+                    then \(\left(f_K^L\right)^{-1}(\mathfrak p_L) = \mathfrak p_K\). <br>
+                In other words: \(\mathfrak p_L | f_K^L(\mathfrak p_K) \). 
+                Such a collection will henceforth be called a <em>well-formed</em> collection of prime ideals of \(\mathscr L\).
+            </p>    
+            <!-- Lemma 1 -->
+            <p class="Lemma">
+                <strong>Lemma 1</strong>: If \(\mathscr P\) is a well-formed collection of prime ideals of \(\mathscr L\), then 
+                \[\mathfrak p := \bigcup_{\mathfrak p_L \in \mathscr P} f_L(\mathfrak p_L) \subset \overline{\mathbb Z}\]
+                is a prime ideal of \(\overline{\mathbb Z}\).
+            </p>    
+            <div type="button" class="collapsible" onload="style.display='None'">Proof of Lemma 1 (incomplete)</div>
+            <div class="content">
+                <p>
+                    Suppose that \(x,y \in \mathfrak p\). 
+                    Then there exists some extensions \(L_x, L_y \in \mathscr L\) such that 
+                        \(x \in \mathcal O_{L_x}\) and \(y \in \mathcal O_{L_y}\).
+                    There exists \(L \in \mathscr L\) such that \(L\) is a finite extension of 
+
+                    <fin></fin>
+                </p>
+            </div>
+            <!-- Lemma 2 -->
+            <p class="Lemma">
+                <strong>Lemma 2</strong>: Let $\mathscr P$ be the a well-formed collections of prime ideals of 
+                $\mathscr L$. If there exists some $\mathfrak p_L \in \mathscr P$ such that $\mathfrak p_L = 0$,
+                then for all $\mathfrak p_K \in \mathscr P$, $\mathfrak p_K = 0$.
+            </p>    
+            <div type="button" class="collapsible" onload="style.display='None'">Proof of Lemma 2</div>
+            <div class="content">
+                <p>
+                    Suppose that $\mathfrak p_L = 0$. Since $\mathscr P$ is well-formed, 
+                    we know that $\mathfrak p_{\mathbb Q} = (f_{\mathbb Q}^L)^{-1}(0)$.
+                    Take any $K\in \mathscr L$.
+                    Then $(f_\mathbb{Q}^K)^{-1}(\mathfrak p_K) = 0$.
+                    Since $N_K(x) \in \mathfrak p_K$ for any $x \in \mathfrak p_K$, it must be that $N_K(x) = 0$ 
+                        for all $x \in \mathfrak p_K$.
+                    Therefore, $x=0$ and $\mathfrak p_K = 0$.
+                    <fin></fin>
+                </p>
+            </div>
+            <!-- Text -->
+            <p>
+                Therefore, we can define the (unique) well-formed collection of primes ideals containing $0$ to be the $0$ collection. 
+                <br> 
+                Moreover, given a prime ideal $\mathfrak p \subset \overline{\mathbb Z}$, 
+                we can create a well-formed collection of prime ideals $\mathscr P = \{ f_L^{-1}(\mathfrak p)\}_{L\in \mathscr L}$. 
+                This is well-formed almost definitionally. 
+                We say $\mathscr P$ is induced by $\mathfrak p$. 
+            </p> 
+            <!-- Lemma 3 -->
+            <p class="Lemma">
+                <strong>Lemma 3</strong>: Let $\mathscr P$ be the well-formed collection of prime ideals of 
+                $\mathscr L$ induced by the prime ideal $\mathfrak p \subset \overline{\mathbb Z}$. Then
+                $$ \mathfrak p = \bigcup_{\mathfrak p_L \in \mathscr P} f_L(\mathfrak p_L) 
+                = \bigcup_{L\in \mathscr L} f_L(f_L^{-1} (\mathfrak p))$$
+            </p>    
+            <div type="button" class="collapsible" onload="style.display='None'">Proof of Lemma 3</div>
+            <div class="content">
+                <p>
+                    By set theory, we immediately have
+                    $$ \mathfrak p \supset \bigcup_{L\in \mathscr L} f_L(f_L^{-1} (\mathfrak p))$$
+                    Take arbitrary $x\in \mathfrak p$. 
+                    We aim to show that $x \in f_L(f_L^{-1}(\mathfrak p))$ for some $L\in \mathscr L$. <br>
+                    We know that there exists $K \in \mathscr L$ such that $x\in  f_K(\mathcal O_K)$.
+                    Since $f_K$ is injective, it is an isomorphism from $\mathcal O_K$ to $f_K(\mathcal O_K)$.
+                    Therefore, there exists a unique $y \in \mathcal O_K$ such that $f_K(y)=x$.
+                    It follows that $y \in f_K^{-1}(\mathfrak p)$ and therefore $x \in f_K(f_K^{-1}(\mathfrak p))$. Therefore
+
+                    $$ \mathfrak p = \bigcup_{L\in \mathscr L} f_L(f_L^{-1} (\mathfrak p))$$
+                    <fin></fin>
+                </p>
+            </div>
+            <!-- Lemma 4 -->
+            <p class="Lemma">
+                <strong>Lemma 4</strong>: Let $\mathscr P$ be a well-formed collection of primes ideals of $\mathscr L$. 
+                If we define the prime idea
+                $$\mathfrak p := \bigcup_{\mathfrak p_L \in \mathscr P} f_L(\mathfrak p_L) \subset \overline{\mathbb Z}$$
+                and define $\mathscr P'$ to be the well-formed collection of prime ideals of $\mathscr L$ induced by $\mathfrak p$,
+                then $\mathscr P =\mathscr P'$.
+            </p>    
+            <div type="button" class="collapsible" onload="style.display='None'">Proof of Lemma 4</div>
+            <div class="content">
+                <p>
+                    We need to show that for all $L\in \mathscr L$, $\mathfrak p_L = \mathfrak p'_L$. 
+                    We know that $\mathfrak p'_L = f_L^{-1}(\mathfrak p)$.
+                    By set theory, we see that $\mathfrak p_L \subset f_L^{-1}(\mathfrak p)$.
+                    There are two cases.
+                    Case 1: $\mathfrak p_L = 0$. Then by Lemma 2, $\mathscr P = 0$, so $\mathfrak p = 0$. 
+                    Therefore, $f_L^{-1}(\mathfrak p) = 0$, so $\mathscr P' = 0$. 
+                    Case 2: $\mathfrak p_L \neq 0$, so $\mathfrak p_L$ is maximal, 
+                        since every nonzero prime ideal is maximal in $\mathcal O_L$. 
+                    Since $f_L^{-1}(\mathfrak p)$ is a proper ideal of $\mathcal O_L$,
+                        we see that $\mathfrak p_L = f_L^{-1}(\mathfrak p)$.
+                    Therefore, $\mathscr P = \mathscr P'$.
+                    <fin></fin>
+                </p>
+            </div>
+            <p class="Theorem">
+                <strong>Theorem 5</strong>: Prime ideals of $\overline{\mathbb Z}$ are in one to one correspondence with 
+                    well-formed collections of prime ideals of $\mathscr L$.
+            </p>
+            
+
+            
+            <!-- <p class="Lemma">
+                <strong>Lemma </strong>: 
+            </p>    
+            <div type="button" class="collapsible" onload="style.display='None'">Proof of Lemma (incomplete)</div>
+            <div class="content">
+                <p>
+                    
+                    <fin></fin>
+                </p>
+            </div> -->
+            
+            <script src="../../../script.js"></script>
+        </div>
+    </body>
+
+</html>
+
+
+
+
+
+    <body>
+       
+
+    </body>
+
+

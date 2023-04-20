@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8"/>
+
+        <link href="../../../style.css" rel="stylesheet"/>
+        <title>Griffin Edwards</title>
+
+        <meta name="Griffin Edwards" content="Griffin Edwards">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css" integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.js" integrity="sha384-Qsn9KnoKISj6dI8g7p1HBlNpVx0I8p1SvlwOldgi3IorMle61nQy4zEahWYtljaz" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                renderMathInElement(document.body, {
+                // customised options
+                // • auto-render specific keys, e.g.:
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                // • rendering keys, e.g.:
+                throwOnError : false
+                });
+            });
+        </script>
+        
+        
+        <!-- MathJax
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+    </head> 
+
+    <body>
+        
+        <div class="topnav">
+            <table style="width: 100%;">
+                <tr>
+                    <td>
+                        <name>
+                            Griffin Edwards
+                        </name>
+                        <img src="../../../images/Griffin_Icon_White.png" alt="Logo" class="logo"> 
+                    </td>
+                    <td>
+                        <name>
+                            Quadratic Reciprocity
+                        </name>
+                    </td>
+                    <td class="alignRight">
+                        <a href="../../index.html">Return</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="space"></div>
+
+        <div class="main">
+            <h1> </h1>
+            <p>
+                This page is still a work in progrss! 
+                Matt Baker recently shared with me a proof of quadratic reciprocity using a fun approach to proving Zolotarev's reciprocity law.
+                You can find his website 
+                <a href="https://sites.google.com/view/mattbakermath/home/">here</a>
+                 and the blog post in question 
+                <a href="https://mattbaker.blog/2013/07/03/quadratic-reciprocity-and-zolotarevs-lemma/">here</a>.
+                <br>
+                We first will review some definitions. If you are familiar, feel free to skip them! 
+            </p>
+            <div type="button" class="collapsible" onload="style.display='None'">
+                <strong>Definition:</strong> Legendre Symbol $\Big(\frac{a}{p}\Big)$
+            </div>
+            <div class="content">
+                <p>
+                    Let $p$ be a prime number, and $a$ a natural number that $p$ does not divide. Then we can define:
+                    $$\bigg(\frac{a}{p}\bigg) = 
+                    \left\{
+                        \begin{array}{cc}
+                        1 & \text{ if } \exists x\, (x^2 \equiv a \mod p) \\
+                        -1  & \text{ if } \forall x\, (x^2 \not \equiv a \mod p)
+                        \end{array}
+                        \right\}
+                    $$
+                </p>
+            </div> 
+            <div type="button" class="collapsible" onload="style.display='None'">
+                <strong>Definition:</strong> Permutation Sign $\Big[\frac{a}{p}\Big]$
+            </div>
+            <div class="content">
+                <p>
+                    <p>
+                        Let $p$ be a prime number, and $a$ a natural number that $p$ does not divide. 
+                        Then $a$ acts on $\mathbb Z /p \mathbb Z$ by sending $x \mapsto xa$.
+                        This map is has an inverse, since $a$ has an inverse modulo $p$.
+                        Therefore, $a$ is a permutation of $\mathbb Z /p \mathbb Z$.
+                        We can therefore, define the sign of the purmutation, 
+                            which we denote $\Big[\frac{a}{p}\Big]$. 
+                        <br>
+                        Recall any permutation can be uniquely (up to reordering) be decomposed into disjoint cycles.
+                        However, any permutation can be decomposed into a composition of transpositions. 
+                        While two transposition decompositions may be different, 
+                            there is always either an even or odd number of transpositions, regardless of the chosen decomposition.
+                        If there are an even number of transpositions, then the sign of the permutation is $1$. 
+                        If there are an odd number of transpositions, then the sign of the permutation is $-1$.
+                    </p>
+                </p>
+            </div>
+            <!-- Lemma 1 -->
+            <p class="Lemma">
+                <strong>Zolotarev's Lemma: </strong>
+                <br>
+                If $p$ is a prime number, and $a$ a natural number that $p$ does not divide, then:
+                $$\bigg(\frac{a}{p}\bigg) = \bigg[\frac{a}{p}\bigg]$$.
+            </p>    
+            <div type="button" class="collapsible" onload="style.display='None'">Proof of Zolotarev's Lemma</div>
+            <div class="content">
+                <p>
+                    Suppose that $(\frac{a}{p}) = 1$. Then there exists some $b$ coprime to $p$ such that $a \equiv b^2 \mod p$. 
+                    Therefore, the action of $a$ on $\mathbb Z /p\mathbb Z$ is equivalent to the action of $b$ on $\mathbb Z/p\mathbb Z$ done twice.
+                    Since the sign of an action is a group homorphism, we see that 
+                    $$\bigg[\frac{a}{p}\bigg] = \bigg[\frac{b}{p}\bigg] \cdot \bigg[\frac{b}{p}\bigg] = 1$$
+                    <br>
+                    Now we suppose that $(\frac{a}{p}) = -1$. 
+                    First, we can see that $\text{ord}(a)$ in $(\mathbb Z/p\mathbb Z)^*$ is even. 
+                    If this is the case, then $-1$ is a power of $a$.
+                    <br>
+                    Suppose for contradiction that $\text{ord}(a)$ is odd.
+                    Then there exists some $k\in \mathbb N$ such that $a^{2k+1} = 1$. 
+                    Then $a^{2k+2} = a$, so $\big(a^{k+1}\big)^2 = a$, which is a contradiction.
+                    <br>
+                    Let the order of $a$ be $n$.
+                    When we decompose $a$ into disjoint cycles, each cycle has length $n$. 
+                    The cycles are generated by the action of multiplication by $a$, so each cycle is exactly a coset of $(a)$. 
+                    A cycle of even length has an odd sign. 
+                    Therefore, the last thing we must check is there are an odd of number of cosets. 
+                    <br>
+                    Suppose there are an even number of cosets. 
+                    Since $(\mathbb Z/p\mathbb Z)^*$ is a cyclic group, then $(\mathbb Z/p\mathbb Z)^*/(a)$ is a cyclic subgroup. 
+                    We see that there exists some nontrivial coset $b(a)$ such that $b^2(a) = (a)$. 
+                    Therefore, $b^2 = a^k$ for some $k$. 
+                    If $k$ is even, then $\pm b = a^{k/2}$. 
+                    Since $-1$ is a power of $a$, then $b$ is a power of $a$.
+                    Therefore $k$ is odd.
+                    So there exists $t\in \mathbb N$ such that $2t+1 = k$. 
+                    Finally, we can see that $(ba^{-t})^2 = a$, 
+                        which is contradicts our assumption that there are an even number of cosets.
+                    <br>
+                    We have that action induced by $a$ is the composition of an odd number of odd cycles, 
+                        so $[\frac{a}{p}] = -1$. 
+                    Thus, we have proved Zolotarev's Lemma. 
+                </p>
+            </div>
+
+            <p class="Lemma">
+                <strong>Lemma 1:</strong> 
+                
+            </p>    
+            <div type="button" class="collapsible" onload="style.display='None'">Proof of Lemma 1 (incomplete)</div>
+            <div class="content">
+                <p>
+                    We 
+                    <fin></fin>
+                </p>
+            </div>
+            <script src="../../../script.js"></script>
+        </div>
+    </body>
+
+</html>
